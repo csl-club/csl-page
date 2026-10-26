@@ -1,0 +1,40 @@
+---
+const links = [
+    {
+        name: "Inicio",
+        href: "/"
+    },
+    {
+        name: "Eventos",
+        href: "/events"
+    },
+    {
+        name: "Proyectos",
+        href: "/projects"
+    },
+    {
+        name:"Galería",
+        href: "/gallery"
+    },
+    {
+        name: "Comunidad",
+        href: "/community"
+    }
+    //this should be modified according to the pages that are created in the project.
+]
+---
+
+
+<nav class="header__nav">
+  {links.map(link => {
+    if (link.name === "Comunidad"){
+        return (<a href={link.href} class="header__nav__link-alt">
+      {link.name}
+    </a>)
+    }
+
+    return (<a href={link.href} class="header__nav__link">
+      {link.name}
+    </a>)
+  })}
+</nav>
