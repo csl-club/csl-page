@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+
+// los mismos proyectos de miembros que /projects (awesome-utec)
+const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order).slice(0, 5);
+
+const prompt = "Danee@fedora-desktop:~$";
+---
+
+<section class="projects">
+	<img class="projects__wave" src="/images/wave-projects.svg" alt="" />
+
+	<div class="projects__content">
+		<ul class="projects__list">
+			{projects.map((project) => (
+				<li class="projects__item">
+					<div class="projects__item__header">
+						<a class="projects__item__name" href={project.data.url}>{project.data.name}</a>
+						<span class="projects__item__author">{project.data.authors.join(", ")}</span>
+					</div>
+					<p class="projects__item__desc">{project.data.summary}</p>
+				</li>
+			))}
+		</ul>
+
+		<div class="projects__terminal">
+			<div class="projects__terminal__controls" aria-hidden="true">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h16" /></svg>
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="5" width="14" height="14" /></svg>
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 5l14 14M19 5L5 19" /></svg>
+			</div>
+
+			<h2 class="projects__title">Lo que construimos entre clases.</h2>
+
+			<p class="projects__prompt">{prompt} cat projects.txt</p>
+			<p class="projects__text">
+				Emuladores, ports, mods y juegos para consolas retro: los proyectos nacen
+				de la curiosidad de cada miembro y se desarrollan en abierto, con código
+				libre que cualquiera puede leer, usar y mejorar.
+			</p>
+			<p class="projects__text">
+				En CSL Labs mostramos lo que vamos construyendo, y si tienes una idea,
+				encuentras gente con quien sacarla adelante.
+			</p>
+			<p class="projects__prompt">{prompt} <span class="projects__cursor"></span></p>
+		</div>
+	</div>
+</section>
