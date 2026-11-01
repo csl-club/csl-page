@@ -1,4 +1,5 @@
 ---
+import { url } from "../lib/url";
 import { getCollection } from "astro:content";
 
 // los mismos proyectos de miembros que /projects (awesome-utec)
@@ -8,7 +9,7 @@ const prompt = "Danee@fedora-desktop:~$";
 ---
 
 <section class="projects">
-	<img class="projects__wave" src="/images/wave-projects.svg" alt="" />
+	<img class="projects__wave" src={url("/images/wave-projects.svg")} alt="" />
 
 	<div class="projects__content">
 		<ul class="projects__list">

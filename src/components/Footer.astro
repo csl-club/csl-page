@@ -1,11 +1,12 @@
 ---
+import { url } from "../lib/url";
 import SocialIcon from "./SocialIcon.astro";
 import { socials } from "../data/socials";
 
 const pages = [
-	{ name: "Eventos", href: "/events" },
-	{ name: "Proyectos", href: "/projects" },
-	{ name: "Galería", href: "/gallery" },
+	{ name: "Eventos", href: url("/events") },
+	{ name: "Proyectos", href: url("/projects") },
+	{ name: "Galería", href: url("/gallery") },
 ];
 
 const year = new Date().getFullYear();
@@ -14,7 +15,7 @@ const year = new Date().getFullYear();
 <footer class="footer">
 	<div class="footer__top">
 		<div class="footer__brand">
-			<img class="footer__logo" src="/images/CSL_icon.png" alt="Logo del CSL" />
+			<img class="footer__logo" src={url("/images/CSL_icon.png")} alt="Logo del CSL" />
 			<p>Club de Software Libre @ UTEC</p>
 			<a class="footer__mail" href="mailto:csl@utec.edu.pe">csl@utec.edu.pe</a>
 			<div class="footer__socials">

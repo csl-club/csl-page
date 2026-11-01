@@ -1,4 +1,5 @@
 ---
+import { url } from "../lib/url";
 import Stars from "./Stars.astro";
 import SocialIcon from "./SocialIcon.astro";
 import { socials } from "../data/socials";
@@ -26,9 +27,9 @@ import { socials } from "../data/socials";
 		</div>
 	</div>
 
-	<img class="hero__penguin hero__penguin--left" src="/images/penguins/left.svg" alt="" />
-	<img class="hero__penguin hero__penguin--big" src="/images/penguins/big.svg" alt="" />
-	<img class="hero__penguin hero__penguin--small" src="/images/penguins/small.svg" alt="" />
+	<img class="hero__penguin hero__penguin--left" src={url("/images/penguins/left.svg")} alt="" />
+	<img class="hero__penguin hero__penguin--big" src={url("/images/penguins/big.svg")} alt="" />
+	<img class="hero__penguin hero__penguin--small" src={url("/images/penguins/small.svg")} alt="" />
 
-	<img class="hero__wave" src="/images/wave-hero.svg" alt="" />
+	<img class="hero__wave" src={url("/images/wave-hero.svg")} alt="" />
 </section>

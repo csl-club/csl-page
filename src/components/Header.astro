@@ -1,10 +1,11 @@
 ---
+import { url } from "../lib/url";
 import NavNar from "./NavBar.astro";
 ---
 
 <header class="header">
-	<a href="/" class="header__logo">
-        <img src="/images/CSL_icon.png" alt="Club de Software Libre, inicio" />
+	<a href={url("/")} class="header__logo">
+        <img src={url("/images/CSL_icon.png")} alt="Club de Software Libre, inicio" />
     </a>
 
 	<NavNar />

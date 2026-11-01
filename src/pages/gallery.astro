@@ -1,4 +1,5 @@
 ---
+import { url } from "../lib/url";
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 
@@ -30,13 +31,13 @@ const fmt = (date: Date) =>
 					<span class="gallery__info">
 						{album.data.title} · {fmt(album.data.date)} · {album.data.photos.length} fotos
 					</span>
-					<a class="gallery__event" href={`/events#${album.id}`}>ver evento →</a>
+					<a class="gallery__event" href={url(`/events#${album.id}`)}>ver evento →</a>
 				</div>
 
 				<div class="gallery__grid">
 					{album.data.photos.map((photo) => (
-						<button class="gallery__item" type="button" data-src={photo.src} data-caption={`${album.data.title}: ${photo.alt}`}>
-							<img src={photo.src} alt={photo.alt} loading="lazy" />
+						<button class="gallery__item" type="button" data-src={url(photo.src)} data-caption={`${album.data.title}: ${photo.alt}`}>
+							<img src={url(photo.src)} alt={photo.alt} loading="lazy" />
 						</button>
 					))}
 				</div>

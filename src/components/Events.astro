@@ -1,4 +1,5 @@
 ---
+import { url } from "../lib/url";
 const photos = [
 	{ src: "/images/events/claude-day-aula.jpg", alt: "Aula Magna llena durante el Claude Day" },
 	{ src: "/images/events/java-grupal.jpg", alt: "Foto grupal de los asistentes a la charla de Java" },
@@ -16,8 +17,8 @@ const photos = [
 		</p>
 
 		<div class="events__footer">
-			<img class="events__penguin" src="/images/penguins/events.svg" alt="" />
-			<a href="/events" class="events__button">
+			<img class="events__penguin" src={url("/images/penguins/events.svg")} alt="" />
+			<a href={url("/events")} class="events__button">
 				Ver Eventos
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 					<path d="M5 12h14M13 6l6 6-6 6" />
@@ -28,7 +29,7 @@ const photos = [
 
 	<div class="events__gallery">
 		{photos.map((photo) => (
-			<img class="events__photo" src={photo.src} alt={photo.alt} loading="lazy" />
+			<img class="events__photo" src={url(photo.src)} alt={photo.alt} loading="lazy" />
 		))}
 	</div>
 </section>
