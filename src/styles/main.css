@@ -6,11 +6,11 @@
     --text-primary: #E4E8FF;
     --solid-section: #0B0C20;
     --projects-bg: #0D0779;
-    --hero-gradient-a: #6A2CA7;
-    --hero-gradient-b: #077975;
+    --hero-gradient-a: #8C1ABC;                   /* morado, esquina inferior izquierda */
+    --hero-gradient-b: #0D0779;                   /* índigo, domina el resto del hero */
     --manifesto-gradient-end: #A72CA7;
     --button-bg: #E4E8FF;
-    --button-text: #2C3A7A;
+    --button-text: #0D0779;
     --author: #BAFF00;
     --prompt: #A72BA7;
 
@@ -89,7 +89,9 @@ img{
     position: relative;
     min-height: max(100vh, 620px);
     overflow: hidden;
-    background: linear-gradient(208deg, var(--hero-gradient-b) 30%, var(--hero-gradient-a) 96%);
+    /* el morado sale de la esquina inferior izquierda y se funde en índigo */
+    background: radial-gradient(ellipse 85% 120% at 0% 100%, var(--hero-gradient-a) 0%, #440F96 35%, var(--hero-gradient-b) 80%);
+    background-color: var(--hero-gradient-b);
 }
 
 .hero__star{
